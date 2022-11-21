@@ -123,11 +123,56 @@ function addCategory(category){
 
     const genreTitle = document.createElement('div')
     genreTitle.classList.add('genre-title')
-    genreTitle.innerText = category.genre
+    genreTitle.innerHTML = category.genre
 
     column.appendChild(genreTitle)
     game.append(column)
+
+    category.questions.forEach(question=>{
+        const card = document.createElement('div')
+        card.classList.add('card')
+        column.append(card)
+
+        if(question.level==='easy'){
+            card.innerHTML = 100;
+        }
+        if(question.level==='medium'){
+            card.innerHTML = 200;
+        }
+        if(question.level==='hard'){
+            card.innerHTML = 300;
+        }
+
+        card.setAttribute('data-question',question.question);
+        card.setAttribute('data-correct',question.answers[0]);
+        card.setAttribute('data-correct',question.answers[1]);
+        card.setAttribute('data-answer1',question.correct);
+        card.setAttribute('data-value',card.getInnerHTML());
+
+        card.addEventListener('click',flipCard)
+    })
+
 }
 
 jeopardycategories.forEach(cat=>addCategory(cat))
+
+function flipCard(){
+    this.innerHTML = ""
+
+    const textDisplay = document.createElement('div')
+    textDisplay.classList.add('card-text') 
+    textDisplay.innerHTML = this.getAttribute('data-question')
+    const firstButton = document.createElement('button')
+    const secondButton = document.createElement('button')
+
+    firstButton.classList.add('first-button')
+    secondButton.classList.add('second-button')
+
+    firstButton.innerHTML = this.getAttribute('data-answer-1');
+    secondButton.innerHTML = this.getAttribute('data-answer-2');
+
+    this.append(textDisplay,firstButton,secondButton);
+}
+
+
  
