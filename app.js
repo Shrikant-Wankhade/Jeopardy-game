@@ -149,7 +149,7 @@ function addCategory(category){
         card.setAttribute('data-correct',question.correct);
         card.setAttribute('data-value',card.getInnerHTML());
 
-        card.addEventListener('click',flipCard)
+        card.addEventListener('click',flipCard);
     })
 
 }
