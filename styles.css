@@ -31,3 +31,14 @@ body{
     padding: 10px;
     line-height: 120px;
 }
+
+
+.first-button{
+    background-color: rgb(24,171,24);
+    /* padding: 10px; */
+}
+
+.second-button{
+    background-color: rgb(190,57,37);
+    
+}
