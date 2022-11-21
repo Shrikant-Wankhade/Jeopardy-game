@@ -148,6 +148,8 @@ function addCategory(category){
         card.setAttribute('data-answer-2',question.answers[1]);
         card.setAttribute('data-correct',question.answers[0]);
         card.setAttribute('data-correct',question.answers[1]);
+        card.setAttribute('data-answer-1',question.answers[0]);
+        card.setAttribute('data-answer-2',question.answers[1]);
         card.setAttribute('data-answer1',question.correct);
         card.setAttribute('data-value',card.getInnerHTML());
 
@@ -163,6 +165,8 @@ function flipCard(){
     this.style.fontSize = "15px"
     this.style.lineHeight = "30px"
 
+    this.style.fontSize = "15px"
+    this.style.lineHeight = "30px"
     const textDisplay = document.createElement('div')
     textDisplay.classList.add('card-text') 
     textDisplay.innerHTML = this.getAttribute('data-question')
