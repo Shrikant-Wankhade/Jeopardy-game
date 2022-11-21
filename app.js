@@ -116,3 +116,18 @@ const jeopardycategories =[
     },
 ]
 
+
+function addCategory(category){
+    const column = document.createElement('div')
+    column.classList.add('genre-column')
+
+    const genreTitle = document.createElement('div')
+    genreTitle.classList.add('genre-title')
+    genreTitle.innerText = category.genre
+
+    column.appendChild(genreTitle)
+    game.append(column)
+}
+
+jeopardycategories.forEach(cat=>addCategory(cat))
+ 
