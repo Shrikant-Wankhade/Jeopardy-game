@@ -170,11 +170,41 @@ function flipCard(){
     firstButton.classList.add('first-button')
     secondButton.classList.add('second-button')
 
+    firstButton.addEventListener('click', getResult);
+    secondButton.addEventListener('click', getResult);
+
     firstButton.innerHTML = this.getAttribute('data-answer-1');
     secondButton.innerHTML = this.getAttribute('data-answer-2');
 
     this.append(textDisplay,firstButton,secondButton);
 }
 
+let score = 0;
+function getResult(){
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card=>card.addEventListener('click',flipcard));
 
+    const cardOfButton = this.parentElement;
+
+    if(cardOfButton.getAttribute('data-correct') === this.innerHTML){
+        score = score + parseInt(cardOfButton.getAttribute('data-value'));
+        cardOfButton.classList.add('correct-answer');
+        setTimeout(()=>{
+            while(cardOfButton.firstChild){
+                cardOfButton.removeChild(cardOfButton.lastChild)
+            }
+            cardOfButton.innerHTML = cardOfButton.getAttribute('data-value')
+        },100)
+    }else{
+        cardOfButton.classList.add('wrong-answer');
+        setTimeout(()=>{
+            while(cardOfButton.firstChild){
+                cardOfButton.removeChild(cardOfButton.lastChild)
+            }
+            cardOfButton.innerHTML = 0;
+        },100)
+    }
+
+    cardOfButton.removeChild('click',flipCard);
+}
  
