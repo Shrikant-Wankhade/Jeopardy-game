@@ -190,6 +190,9 @@ function getResult(){
 
     if(cardOfButton.getAttribute('data-correct') === this.innerHTML){
         score = score + parseInt(cardOfButton.getAttribute('data-value'));
+        const scoreDisplay = document.getElementById('score');
+        scoreDisplay.innerHTML = score;
+
         cardOfButton.classList.add('correct-answer');
         setTimeout(()=>{
             while(cardOfButton.firstChild){
