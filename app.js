@@ -51,7 +51,7 @@ const jeopardycategories =[
             {
                 question: "When is christmas?",
                 answers:["30th DEc","25th Dec"],
-                correct:"JK Rowling",
+                correct:"25th Dec",
                 level:"easy"
             },
             {
@@ -184,7 +184,7 @@ function flipCard(){
 let score = 0;
 function getResult(){
     const allCards = Array.from(document.querySelectorAll('.card'));
-    allCards.forEach(card=>card.addEventListener('click',flipcard));
+    allCards.forEach(card=>card.addEventListener('click',flipCard));
 
     const cardOfButton = this.parentElement;
 

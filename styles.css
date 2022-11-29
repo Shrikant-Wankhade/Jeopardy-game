@@ -49,3 +49,11 @@ body{
     padding: 5px;
     margin: 5px;
 }
+
+.correct-answer{
+    background-color: rgb(186,186,24);
+}
+
+.wrong-answer{
+    background-color: rgb(221,64,56);
+}
