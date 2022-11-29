@@ -149,7 +149,7 @@ function addCategory(category){
         card.setAttribute('data-correct',question.correct);
         card.setAttribute('data-value',card.getInnerHTML());
 
-        card.addEventListener('click',flipCard)
+        card.addEventListener('click',flipCard);
     })
 
 }
@@ -177,6 +177,8 @@ function flipCard(){
     secondButton.innerHTML = this.getAttribute('data-answer-2');
 
     this.append(textDisplay,firstButton,secondButton);
+    const allCards = Array.from(document.querySelectorAll('.card'))
+    allCards.forEach(card => card.removeEventListener('click',flipCard))
 }
 
 let score = 0;
@@ -205,6 +207,7 @@ function getResult(){
         },100)
     }
 
+
     cardOfButton.removeChild('click',flipCard);
 }
- 
+
